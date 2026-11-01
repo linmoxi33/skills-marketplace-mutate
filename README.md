@@ -94,7 +94,11 @@ registry snapshots captured from the same repository's history
 ## Limits
 
 - Registry-level rules need either a real checkout or a `manifest.txt`; frontmatter rules (`SM010`–`SM021`) are skipped on manifest-only snapshots, and the JSON reports which rule ids were skipped. This is deliberate: no silent "looked at it" claims.
-- The frontmatter reader implements the subset of YAML the skill spec uses (`key: value`, quoted scalars, `>`/`|` block scalars). It is not a YAML 1.2 parser; exotic constructs may be read as strings.
+- The frontmatter reader implements the subset of YAML the skill spec uses (`key: value`, quoted scalars, `>`/`|` block scalars,
+  and nested block maps such as the spec's `metadata:` map, whose children are consumed as a block rather than promoted to top-level keys).
+  It is not a YAML 1.2 parser; exotic constructs may be read as strings.
+- A manifest-only snapshot (`marketplace.json` + `manifest.txt`) skips `SM010`-`SM021` and says so in the JSON. An empty
+  `SKILL.md` found on disk is *not* treated that way: it runs every rule and fails `SM010`/`SM020` (regression test `test_18`).
 - `SM016` (third person) and `SM017` (states when to use) are heuristics over the description's first token and trigger vocabulary. They are reported with the matched word so a human can overrule.
 - Rename detection is deliberately conservative: only a 1:1 replacement (old name gone, new name fresh) counts; reordering a `skills[]` list is reported separately as `reordered_entries` and is not treated as breaking.
 

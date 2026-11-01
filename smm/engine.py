@@ -12,12 +12,19 @@ from .rules import RULES, Rule, clean_spec
 
 
 def _rule_scopes(pack: Pack) -> Dict[str, str]:
-    """Return {rule_id: "ran"|"skipped"} for this pack shape."""
-    # A manifest-only snapshot has no SKILL.md bodies, so only registry rules run.
-    bodyless = bool(pack.skills) and all(not s.md for s in pack.skills.values())
+    """Return {rule_id: "ran"|"skipped"} for this pack shape.
+
+    Only a genuine manifest-only snapshot may skip the frontmatter rules. A real
+    on-disk ``SKILL.md`` that happens to be empty must NOT be treated as
+    "no body to inspect" -- that would silently skip all 12 frontmatter rules
+    and report exit 0 on a pack containing an empty skill file.
+    """
+    manifest_only = pack.manifest is not None and bool(pack.skills) and all(
+        not s.md for s in pack.skills.values()
+    )
     out = {}
     for r in RULES:
-        out[r.id] = "skipped" if (bodyless and r.scope == "full") else "ran"
+        out[r.id] = "skipped" if (manifest_only and r.scope == "full") else "ran"
     return out
 
 

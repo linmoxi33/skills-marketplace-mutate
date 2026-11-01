@@ -308,7 +308,11 @@ def _r17(p: Pack) -> List[Finding]:
         desc = _skill_md(p, d).front.get("description")
         if not isinstance(desc, str) or not desc.strip():
             continue
-        if not TRIGGER_RE.search(desc):
+        m = TRIGGER_RE.search(desc)
+        # Guard the cheap heuristic against negated mentions ("does not trigger on X").
+        negated = bool(m) and re.search(r"(not|n't|never|no)\s+\w{0,12}\s*$",
+                                        desc[:m.start()], re.I) is not None
+        if not m or negated:
             out.append(Finding("SM017", "warning", f"skills/{d}/SKILL.md",
                                "description states what the skill does but not when to use it"))
     return out

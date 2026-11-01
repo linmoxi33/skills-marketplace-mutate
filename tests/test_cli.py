@@ -119,5 +119,56 @@ class MatrixSuite(unittest.TestCase):
         self.assertEqual(r.returncode, 1)
 
 
+class RegressionSuite(unittest.TestCase):
+    """Defects found by the independent verifier on 2026-11-02."""
+
+    def _write(self, td, skill_md, meta):
+        p = Path(td) / ".claude-plugin"
+        p.mkdir(parents=True)
+        (p / "marketplace.json").write_text(json.dumps({
+            "name": "p", "owner": {"name": "o"}, "metadata": {"version": "1.0.0"},
+            "plugins": [{"name": "core", "description": "d", "source": "./",
+                         "skills": ["./skills/my-widget-tool"]}]}))
+        s = Path(td) / "skills" / "my-widget-tool"
+        s.mkdir(parents=True)
+        (s / "SKILL.md").write_text(skill_md)
+        (s / "LICENSE.txt").write_text("MIT\n")
+        return td
+
+    def test_17_nested_metadata_map_is_not_a_false_positive(self):
+        import tempfile
+        md = ("---\nname: my-widget-tool\n"
+              "description: Widget toolkit for reports. Use this skill when the user asks for a widget.\n"
+              "license: Complete terms in LICENSE.txt\n"
+              "compatibility: Claude Code 1.x\n"
+              "metadata:\n  author: verifier\n  version: \"1.0\"\n---\n\n## Body\n\nText.\n")
+        with tempfile.TemporaryDirectory() as td:
+            self._write(td, md, None)
+            r = run("--root", td, "--json")
+            self.assertEqual(json.loads(r.stdout)["root"]["report"]["findings"], [])
+            self.assertEqual(r.returncode, 0)
+
+    def test_18_empty_skill_md_is_not_silently_skipped(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            self._write(td, "", None)
+            r = run("--root", td, "--json")
+            rep = json.loads(r.stdout)["root"]["report"]
+            self.assertEqual(rep["rules_skipped"], [])
+            self.assertEqual(rep["rules_run"], rep["rules_total"])
+            self.assertIn("SM010", [f["rule"] for f in rep["findings"]])
+            self.assertEqual(r.returncode, 1)
+
+    def test_19_negated_trigger_is_flagged(self):
+        import tempfile
+        md = ("---\nname: my-widget-tool\n"
+              "description: Widget toolkit for rendering reports. This one does not trigger on anything.\n"
+              "license: Complete terms in LICENSE.txt\n---\n\n## Body\n\nText.\n")
+        with tempfile.TemporaryDirectory() as td:
+            self._write(td, md, None)
+            r = run("--root", td, "--json")
+            self.assertIn("SM017", [f["rule"] for f in json.loads(r.stdout)["root"]["report"]["findings"]])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

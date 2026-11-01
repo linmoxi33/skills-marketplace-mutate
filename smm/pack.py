@@ -75,6 +75,16 @@ class Skill:
                     i += 1
                 out[key] = " ".join(x for x in block if x).strip()
                 continue
+            if value == "":
+                # Nested block mapping, e.g. the spec's `metadata:` map. Consume
+                # the indented children so they are not mistaken for top-level
+                # keys (which would make SM018 report false positives).
+                nested: List[str] = []
+                while i < len(lines) and (lines[i].startswith(" ") or not lines[i].strip()):
+                    nested.append(lines[i].strip())
+                    i += 1
+                out[key] = " ".join(x for x in nested if x).strip()
+                continue
             if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
                 value = value[1:-1]
             out[key] = value
