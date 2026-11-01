@@ -18,7 +18,8 @@ from typing import Any, Callable, Dict, List
 
 from .pack import Pack, Skill
 
-ALLOWED_FRONT_KEYS = {"name", "description", "license", "allowed-tools"}
+# Legal frontmatter keys per https://agentskills.io/specification
+ALLOWED_FRONT_KEYS = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
 MAX_DESCRIPTION = 1024
 MAX_BODY_LINES = 500
 NAME_RE = re.compile(r"\A[a-z0-9]+(-[a-z0-9]+)*\Z")

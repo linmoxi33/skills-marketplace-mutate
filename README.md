@@ -22,7 +22,7 @@ Those are issue reports, not checks: nothing re-runs them. Running this tool aga
 
 Does:
 
-- 21 rules over the two machine-readable layers: the registry (`SM001`–`SM009`) and `SKILL.md` frontmatter/body (`SM010`–`SM021`).
+- 21 rules over the two machine-readable layers: the registry (`SM001`–`SM009`) and `SKILL.md` frontmatter/body (`SM010`–`SM021`). Thresholds are taken from the official [Agent Skills specification](https://agentskills.io/specification) (`name` ≤ 64 chars lowercase-hyphen, `description` ≤ 1024 chars, description must say what the skill does *and when to use it*), not invented.
 - **Mutation self-proof.** Each rule ships a mutation that injects the exact defect it exists to catch. `--self-test` runs every rule against its own mutant; a rule that stays silent is reported `unproven` and the process exits `2`. A rule pack that is only ever exercised against a real checkout rots as soon as upstream fixes the defect — this design makes that rot loud.
 - **Multi-version drift matrix.** `--versions a,b,c` audits several snapshots and emits a rule × version finding matrix plus registry drift: added/removed skills, added/removed plugins, and unambiguous 1:1 renames. A rename is a breaking change for every installed plugin pinning the old path.
 - Exit codes `0` / `1` / `2`, a parseable `--json` payload, and a fully offline core (no network call in any rule or test).
