@@ -1,0 +1,20 @@
+{
+  "root": {
+    "path": "examples/in/clean-pack",
+    "report": {
+      "rules_total": 21,
+      "rules_run": 21,
+      "rules_skipped": [],
+      "findings": [],
+      "errors": 0,
+      "warnings": 0,
+      "skills": [
+        "widget"
+      ],
+      "plugins": [
+        "core"
+      ]
+    }
+  },
+  "exit_code": 0
+}

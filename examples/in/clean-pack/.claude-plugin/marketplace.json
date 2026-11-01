@@ -1,0 +1,9 @@
+{
+  "name": "clean-pack",
+  "owner": {"name": "Example"},
+  "metadata": {"version": "1.0.0"},
+  "plugins": [
+    {"name": "core", "description": "Core skills", "source": "./", "strict": false,
+     "skills": ["./skills/widget"]}
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "root": {
+    "path": "examples/in/upstream-head",
+    "report": {
+      "rules_total": 21,
+      "rules_run": 21,
+      "rules_skipped": [],
+      "findings": [
+        {
+          "rule": "SM016",
+          "severity": "error",
+          "where": "skills/canvas-design/SKILL.md",
+          "message": "description starts with imperative verb 'Create'; write it in third person"
+        },
+        {
+          "rule": "SM015",
+          "severity": "error",
+          "where": "skills/claude-api/SKILL.md",
+          "message": "description is 1068 chars, limit is 1024"
+        },
+        {
+          "rule": "SM021",
+          "severity": "warning",
+          "where": "skills/claude-api/SKILL.md",
+          "message": "body is 608 lines, over the 500-line budget"
+        },
+        {
+          "rule": "SM016",
+          "severity": "error",
+          "where": "skills/docx/SKILL.md",
+          "message": "description starts with imperative verb 'Use'; write it in third person"
+        },
+        {
+          "rule": "SM017",
+          "severity": "warning",
+          "where": "skills/frontend-design/SKILL.md",
+          "message": "description states what the skill does but not when to use it"
+        },
+        {
+          "rule": "SM017",
+          "severity": "warning",
+          "where": "skills/internal-comms/SKILL.md",
+          "message": "description states what the skill does but not when to use it"
+        },
+        {
+          "rule": "SM016",
+          "severity": "error",
+          "where": "skills/pdf/SKILL.md",
+          "message": "description starts with imperative verb 'Use'; write it in third person"
+        },
+        {
+          "rule": "SM017",
+          "severity": "warning",
+          "where": "skills/pdf/SKILL.md",
+          "message": "description states what the skill does but not when to use it"
+        },
+        {
+          "rule": "SM016",
+          "severity": "error",
+          "where": "skills/pptx/SKILL.md",
+          "message": "description starts with imperative verb 'Use'; write it in third person"
+        },
+        {
+          "rule": "SM016",
+          "severity": "error",
+          "where": "skills/skill-creator/SKILL.md",
+          "message": "description starts with imperative verb 'Create'; write it in third person"
+        },
+        {
+          "rule": "SM017",
+          "severity": "warning",
+          "where": "skills/theme-factory/SKILL.md",
+          "message": "description states what the skill does but not when to use it"
+        },
+        {
+          "rule": "SM017",
+          "severity": "warning",
+          "where": "skills/webapp-testing/SKILL.md",
+          "message": "description states what the skill does but not when to use it"
+        },
+        {
+          "rule": "SM016",
+          "severity": "error",
+          "where": "skills/xlsx/SKILL.md",
+          "message": "description starts with imperative verb 'Use'; write it in third person"
+        }
+      ],
+      "errors": 7,
+      "warnings": 6,
+      "skills": [
+        "academy-guide",
+        "algorithmic-art",
+        "brand-guidelines",
+        "canvas-design",
+        "claude-api",
+        "discernment-nudge",
+        "doc-coauthoring",
+        "docx",
+        "frontend-design",
+        "internal-comms",
+        "mcp-builder",
+        "pdf",
+        "pptx",
+        "skill-creator",
+        "slack-gif-creator",
+        "theme-factory",
+        "web-artifacts-builder",
+        "webapp-testing",
+        "xlsx"
+      ],
+      "plugins": [
+        "document-skills",
+        "example-skills",
+        "claude-api",
+        "academy-guide",
+        "discernment-nudge"
+      ]
+    }
+  },
+  "exit_code": 1
+}

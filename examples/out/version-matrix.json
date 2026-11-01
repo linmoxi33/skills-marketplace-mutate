@@ -1,0 +1,370 @@
+{
+  "versions": {
+    "mode": "version-matrix",
+    "rule_ids": [
+      "SM001",
+      "SM002",
+      "SM003",
+      "SM004",
+      "SM005",
+      "SM006",
+      "SM007",
+      "SM008",
+      "SM009",
+      "SM010",
+      "SM011",
+      "SM012",
+      "SM013",
+      "SM014",
+      "SM015",
+      "SM016",
+      "SM017",
+      "SM018",
+      "SM019",
+      "SM020",
+      "SM021"
+    ],
+    "versions": [
+      {
+        "name": "4d1e3f3f78",
+        "path": "examples/in/versions/4d1e3f3f78",
+        "version": "1.0.0",
+        "skills": 0,
+        "plugins": 2,
+        "errors": 14,
+        "warnings": 0,
+        "rules_skipped": []
+      },
+      {
+        "name": "89dcaa3a28",
+        "path": "examples/in/versions/89dcaa3a28",
+        "version": "1.0.0",
+        "skills": 18,
+        "plugins": 4,
+        "errors": 0,
+        "warnings": 0,
+        "rules_skipped": [
+          "SM010",
+          "SM011",
+          "SM012",
+          "SM013",
+          "SM014",
+          "SM015",
+          "SM016",
+          "SM017",
+          "SM018",
+          "SM019",
+          "SM020",
+          "SM021"
+        ]
+      },
+      {
+        "name": "f379e5ad66",
+        "path": "examples/in/versions/f379e5ad66",
+        "version": "1.0.0",
+        "skills": 19,
+        "plugins": 5,
+        "errors": 0,
+        "warnings": 0,
+        "rules_skipped": [
+          "SM010",
+          "SM011",
+          "SM012",
+          "SM013",
+          "SM014",
+          "SM015",
+          "SM016",
+          "SM017",
+          "SM018",
+          "SM019",
+          "SM020",
+          "SM021"
+        ]
+      },
+      {
+        "name": "0a64e398ec",
+        "path": "examples/in/versions/0a64e398ec",
+        "version": "1.0.0",
+        "skills": 19,
+        "plugins": 5,
+        "errors": 0,
+        "warnings": 0,
+        "rules_skipped": [
+          "SM010",
+          "SM011",
+          "SM012",
+          "SM013",
+          "SM014",
+          "SM015",
+          "SM016",
+          "SM017",
+          "SM018",
+          "SM019",
+          "SM020",
+          "SM021"
+        ]
+      }
+    ],
+    "matrix": {
+      "SM001": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM002": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM003": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM004": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM005": [
+        14,
+        0,
+        0,
+        0
+      ],
+      "SM006": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM007": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM008": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM009": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM010": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM011": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM012": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM013": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM014": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM015": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM016": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM017": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM018": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM019": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM020": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "SM021": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "drift": [
+      {
+        "added_skills": [
+          "algorithmic-art",
+          "brand-guidelines",
+          "canvas-design",
+          "claude-academy-guide",
+          "claude-api",
+          "doc-coauthoring",
+          "docx",
+          "frontend-design",
+          "internal-comms",
+          "mcp-builder",
+          "pdf",
+          "pptx",
+          "skill-creator",
+          "slack-gif-creator",
+          "theme-factory",
+          "web-artifacts-builder",
+          "webapp-testing",
+          "xlsx"
+        ],
+        "removed_skills": [],
+        "renamed_skills": [],
+        "reordered_entries": [
+          {
+            "index": 4,
+            "from": "skill-creator",
+            "to": "algorithmic-art"
+          },
+          {
+            "index": 5,
+            "from": "mcp-builder",
+            "to": "brand-guidelines"
+          },
+          {
+            "index": 7,
+            "from": "algorithmic-art",
+            "to": "doc-coauthoring"
+          },
+          {
+            "index": 8,
+            "from": "internal-comms",
+            "to": "frontend-design"
+          },
+          {
+            "index": 9,
+            "from": "webapp-testing",
+            "to": "internal-comms"
+          },
+          {
+            "index": 10,
+            "from": "artifacts-builder",
+            "to": "mcp-builder"
+          },
+          {
+            "index": 11,
+            "from": "slack-gif-creator",
+            "to": "skill-creator"
+          },
+          {
+            "index": 12,
+            "from": "theme-factory",
+            "to": "slack-gif-creator"
+          },
+          {
+            "index": 13,
+            "from": "brand-guidelines",
+            "to": "theme-factory"
+          }
+        ],
+        "added_plugins": [
+          "claude-academy-guide",
+          "claude-api"
+        ],
+        "removed_plugins": [],
+        "version": [
+          "1.0.0",
+          "1.0.0"
+        ],
+        "from": "4d1e3f3f78",
+        "to": "89dcaa3a28"
+      },
+      {
+        "added_skills": [
+          "discernment-nudge"
+        ],
+        "removed_skills": [],
+        "renamed_skills": [],
+        "reordered_entries": [],
+        "added_plugins": [
+          "discernment-nudge"
+        ],
+        "removed_plugins": [],
+        "version": [
+          "1.0.0",
+          "1.0.0"
+        ],
+        "from": "89dcaa3a28",
+        "to": "f379e5ad66"
+      },
+      {
+        "added_skills": [
+          "academy-guide"
+        ],
+        "removed_skills": [
+          "claude-academy-guide"
+        ],
+        "renamed_skills": [
+          {
+            "index": 17,
+            "from": "claude-academy-guide",
+            "to": "academy-guide"
+          }
+        ],
+        "reordered_entries": [],
+        "added_plugins": [
+          "academy-guide"
+        ],
+        "removed_plugins": [
+          "claude-academy-guide"
+        ],
+        "version": [
+          "1.0.0",
+          "1.0.0"
+        ],
+        "from": "f379e5ad66",
+        "to": "0a64e398ec"
+      }
+    ],
+    "breaking_changes": 3,
+    "findings_total": 14
+  },
+  "exit_code": 1
+}
